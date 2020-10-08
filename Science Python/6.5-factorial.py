@@ -1,10 +1,17 @@
 def factorial(n):
-    if n == 0:
+    if not isinstance(n, int):
+        print("Factorial is only defined for integers!")
+        exit(1)
+    elif n < 0:
+        print("Factorial is not defined for negative integers!")
+        return None
+    elif n == 0 or n == 1:
         return 1
     else:
-        recurse = factorial(n-1)
+        recurse = factorial(n - 1)
         result = recurse * n
+        print(result)
         return result
 
-n=factorial(4)
-print (n)
+
+print(f"result is {factorial(5)}")
