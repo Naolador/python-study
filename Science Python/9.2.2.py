@@ -14,7 +14,6 @@ def has_no_e(word):
     print(f"e_count:{e_count}\nno_e_count:{no_e_count}")
 
 
-
 fin = open('words.txt')
 
 for words in fin.readlines():
