@@ -1,7 +1,7 @@
 from random import randrange
 
 
-def compare(t):
+def dcompare(t):
     length = len(t)-1
     count = 0
     for i in range(length):
