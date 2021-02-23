@@ -1,24 +1,36 @@
 from random import randrange
 
 
-def compare(t):
-    length = len(t)-1
-    count = 0
-    for i in range(length):
-        if t[i] == t[i+1]:
-            count += 1
-            i += 2
-        else:
-            i += 1
-        if count == 2:
+def is_duplicate(t):
+    s = t
+    s.sort()
+#    print(s)
+    for i in range(len(s)-1):
+        if s[i] == s[i+1]:
             return True
+    return False
+
+def ran_bdays(n):
+    t = []
+    for i in range(n):
+        bday = randrange(1, 365)
+        t += [bday]
+    return t
+
+def count_matches(num_students, num_simulations):
+    count = 0
+    for i in range(num_simulations):
+        t = ran_bdays(num_students)
+        if is_duplicate(t):
+            count += 1
+    return count
 
 
-def birth_days():
-    bday_list = []
-    for i in range(23):
-        bday = randrange(1,365)
-        bday_list += [bday]
-    compare(bday_list)
+def main():
+    num_students = 23
+    num_simulations = 1000
+    count = count_matches(num_students,num_simulations)
 
-print(birth_days())
+    print(f"After {num_simulations} of simulations with {num_students} students, we found {count} simulations with at least one match!")
+
+main()
